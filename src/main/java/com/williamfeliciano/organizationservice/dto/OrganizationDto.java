@@ -14,5 +14,6 @@ public class OrganizationDto {
     private Long id;
     private String organizationName;
     private String organizationDescription;
-    private String OrganizationCode;
+    private String organizationCode;
+    private String createdDate;
 }
