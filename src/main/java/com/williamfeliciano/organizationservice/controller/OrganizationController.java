@@ -5,6 +5,7 @@ import com.williamfeliciano.organizationservice.service.OrganizationService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -30,7 +31,7 @@ public class OrganizationController {
             description = "HTTP status code 201 Created"
     )
     @PostMapping
-    public ResponseEntity<OrganizationDto> saveOrganization(@RequestBody OrganizationDto organizationDto){
+    public ResponseEntity<OrganizationDto> saveOrganization(@RequestBody @Valid OrganizationDto organizationDto){
         OrganizationDto savedOrganization = organizationService.saveOrganization(organizationDto);
         return new ResponseEntity<>(savedOrganization, HttpStatus.CREATED);
     }
